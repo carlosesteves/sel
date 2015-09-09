@@ -9,10 +9,15 @@
 
 ## Build
 
-1. Checkout the code
-2. ```
-   ./gradlew clean compileJava compileTestJava
-   ```
+Checkout the code
+```
+git clone https://github.com/carlosesteves/sel.git
+```
+
+Build
+```
+./gradlew clean compileJava compileTestJava
+```
 
 ## Run the tests
 
