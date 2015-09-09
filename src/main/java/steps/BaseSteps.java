@@ -1,6 +1,5 @@
 package steps;
 
-import org.jbehave.core.annotations.AfterScenario;
 import pages.BasePage;
 
 /**
@@ -11,10 +10,5 @@ public class BaseSteps {
 
     public BaseSteps() {
 
-    }
-
-    @AfterScenario
-    public void closeBrowser() {
-        page.close();
     }
 }

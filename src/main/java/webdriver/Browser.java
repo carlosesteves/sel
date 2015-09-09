@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
+import java.util.stream.Stream;
+
 /**
  * Created by carlosesteves on 07/09/15.
  */
@@ -57,7 +59,7 @@ public class Browser {
         this.webDriver.close();
     }
 
-    public WebElement findElementByName(String name) {
-        return webDriver.findElement(By.className(name));
+    public Stream<WebElement> findElementsBy(By by) {
+        return webDriver.findElements(by).stream();
     }
 }

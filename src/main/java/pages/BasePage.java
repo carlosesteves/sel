@@ -6,7 +6,7 @@ import webdriver.Browser.BrowserName;
  * Created by carlosesteves on 09/09/15.
  */
 public class BasePage {
-    private Browser browser;
+    protected Browser browser;
 
     public BasePage(BrowserName name) {
         browser = new Browser(name);
@@ -19,5 +19,4 @@ public class BasePage {
     public void close() {
         browser.close();
     }
-
 }

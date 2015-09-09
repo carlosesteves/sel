@@ -21,6 +21,8 @@ dependencies {
     testCompile 'org.assertj:assertj-core:1.7.0'
     testCompile 'org.jbehave:jbehave-core:3.9.5'
     testCompile 'org.jbehave.site:jbehave-site-resources:3.1.1:@zip'
+    testCompile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
+    testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'
 }
 
 sourceSets.test.resources.srcDir 'src/test/java'
