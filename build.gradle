@@ -1,0 +1,55 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+version = '1.0'
+ext.junitVersion = '4.11'
+ext.seleniumVersion = '2.47.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.guava:guava:18.0'
+    compile group: 'junit', name: 'junit', version: junitVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version:seleniumVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version:seleniumVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-api', version:seleniumVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version:seleniumVersion
+    compile 'org.jbehave:jbehave-core:3.9.5'
+    testCompile 'junit:junit:4.11'
+    testCompile 'org.assertj:assertj-core:1.7.0'
+    testCompile 'org.jbehave:jbehave-core:3.9.5'
+    testCompile 'org.jbehave.site:jbehave-site-resources:3.1.1:@zip'
+}
+
+sourceSets.test.resources.srcDir 'src/test/java'
+
+test {
+    systemProperty "metaFilters", System.getProperty("metaFilters", "")
+    doFirst {
+        copy {
+            from(zipTree(jarPath("jbehave-core"))) {
+                include "style/*"
+            }
+            into("build/jbehave/view")
+
+        }
+        copy {
+            from(zipTree(jarPath("jbehave-site-resources"))) {
+                include "js/**/*"
+                include "style/**/*"
+                include "images/*"
+            }
+            into("build/jbehave/view")
+        }
+    }
+}
+
+def jarPath(String jarName) {
+    configurations.testCompile.find({ it.name.startsWith(jarName) }).absolutePath
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2.1'
+}

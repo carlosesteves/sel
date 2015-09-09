@@ -1,0 +1,34 @@
+package sel.steps;
+
+import org.jbehave.core.annotations.Given;
+import org.jbehave.core.annotations.Then;
+import pages.GoogleNewsPage;
+import steps.BaseSteps;
+
+/**
+ * Created by carlosesteves on 09/09/15.
+ */
+public class GoogleNewsSteps extends BaseSteps {
+
+    public GoogleNewsSteps() {
+        super();
+    }
+
+    @Given("I open the google news website")
+    public void givenIOpenTheGoogleNewsWebsite() {
+        page = new GoogleNewsPage() {{
+            open();
+        }};
+    }
+
+    @Then("all the headlines are displayed on the page")
+    public void thenAllTheHeadlinesAreDisplayedOnThePage() {
+
+    }
+
+
+
+
+}
+
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="sel.stories.GoogleNewsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2015-09-09T22:17:18" hostname="Carloss-MBP" time="7.021">
+  <properties/>
+  <testcase name="run" classname="sel.stories.GoogleNewsTest" time="7.021"/>
+  <system-out><![CDATA[Processing system properties {}
+Using controls EmbedderControls[batch=false,skip=false,generateViewAfterStories=true,ignoreFailureInStories=false,ignoreFailureInView=false,verboseFailures=true,verboseFiltering=false,storyTimeoutInSecs=60,failOnStoryTimeout=false,threads=1]
+
+(BeforeStories)
+
+Running story sel/stories/google_news_test.story
+
+(sel/stories/google_news_test.story)
+Scenario: Validate all headlines exist on Google News Page
+Given I open the google news website
+Then all the headlines are displayed on the page
+
+
+
+(AfterStories)
+
+Generating reports view to '/Users/carlosesteves/git/selenium/build/jbehave' using formats '[stats, console, html, txt]' and view properties '{navigator=ftl/jbehave-navigator.ftl, views=ftl/jbehave-views.ftl, reports=ftl/jbehave-reports-with-totals.ftl, nonDecorated=ftl/jbehave-report-non-decorated.ftl, decorated=ftl/jbehave-report-decorated.ftl, maps=ftl/jbehave-maps.ftl}'
+Reports view generated with 1 stories (of which 0 pending) containing 1 scenarios (of which 0 pending)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

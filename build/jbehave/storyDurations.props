@@ -1,0 +1,4 @@
+#org.jbehave.core.embedder.StoryManager
+#Wed Sep 09 23:17:25 BST 2015
+sel/stories/google_news_test.story=6000
+total=6000
