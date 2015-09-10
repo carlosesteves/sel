@@ -1,6 +1,5 @@
 package sel.steps;
 
-import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import pages.GoogleNewsPage;
@@ -33,10 +32,6 @@ public class GoogleNewsSteps extends BaseSteps {
         assertThat(page.headlinesCount(), greaterThan(0));
     }
 
-    @AfterScenario
-    public void closeBrowser() {
-        page.close();
-    }
 }
 
 

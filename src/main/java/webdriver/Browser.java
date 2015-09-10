@@ -23,7 +23,7 @@ public class Browser {
 //        , CHROME, IE, SAFARI
     }
 
-    private WebDriver webDriver;
+    public static WebDriver webDriver;
     private int WIDTH = 1024, HEIGHT = 768;
 
     public Browser(BrowserName type) {

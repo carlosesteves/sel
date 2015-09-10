@@ -1,6 +1,5 @@
 package sel.steps;
 
-import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -10,8 +9,8 @@ import steps.BaseSteps;
 
 import java.util.stream.Stream;
 
-import static org.hamcrest.Matchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.greaterThan;
 
 
 /**
@@ -40,8 +39,4 @@ public class BetwayLiveGamesSteps extends BaseSteps {
         assertThat(inPlayPage.eventsCount(), greaterThan(0));
     }
 
-    @AfterScenario
-    public void closeBrowser() {
-        homePage.close();
-    }
 }
