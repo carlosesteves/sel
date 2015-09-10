@@ -1,6 +1,7 @@
 package webdriver;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -23,9 +24,16 @@ public class Browser {
     }
 
     private WebDriver webDriver;
+    private int WIDTH = 1024, HEIGHT = 768;
 
     public Browser(BrowserName type) {
         this.webDriver = setBrowserType(type);
+        setWindowSize(WIDTH, HEIGHT);
+    }
+
+    public Browser(BrowserName type, int windowWidth, int windowHeight) {
+        this.webDriver = setBrowserType(type);
+        setWindowSize(windowWidth, windowHeight);
     }
 
     public WebDriver setBrowserType(BrowserName type) {
@@ -74,5 +82,9 @@ public class Browser {
         WebDriverWait wait = new WebDriverWait(webDriver, 10);
         wait.until(
                 ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
+    public void setWindowSize(int width, int height) {
+        webDriver.manage().window().setSize(new Dimension(width, height));
     }
 }
