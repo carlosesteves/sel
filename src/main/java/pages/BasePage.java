@@ -8,6 +8,12 @@ import webdriver.Browser.BrowserName;
 public class BasePage {
     protected Browser browser;
 
+    public BasePage() {}
+
+    public BasePage(Browser browser) {
+        this.browser = browser;
+    }
+
     public BasePage(BrowserName name) {
         browser = new Browser(name);
     }
@@ -19,4 +25,5 @@ public class BasePage {
     public void close() {
         browser.close();
     }
+
 }

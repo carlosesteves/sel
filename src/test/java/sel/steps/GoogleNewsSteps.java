@@ -6,17 +6,15 @@ import org.jbehave.core.annotations.Then;
 import pages.GoogleNewsPage;
 import steps.BaseSteps;
 
-import java.util.stream.Stream;
-
-import static org.hamcrest.Matchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.greaterThan;
 
 
 /**
  * Created by carlosesteves on 09/09/15.
  */
 public class GoogleNewsSteps extends BaseSteps {
-    GoogleNewsPage page;
+    private GoogleNewsPage page;
 
     public GoogleNewsSteps() {
         super();
@@ -31,9 +29,8 @@ public class GoogleNewsSteps extends BaseSteps {
 
     @Then("all the headlines are displayed on the page")
     public void thenAllTheHeadlinesAreDisplayedOnThePage() {
-        Stream<String> headlines = page.getHeadlines();
         page.printHeadlines();
-        assertThat(headlines, notNullValue());
+        assertThat(page.headlinesCount(), greaterThan(0));
     }
 
     @AfterScenario

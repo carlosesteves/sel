@@ -1,7 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 import static webdriver.Browser.BrowserName.FIREFOX;
@@ -24,13 +26,22 @@ public class GoogleNewsPage extends BasePage {
         open(PAGE_URL);
     }
 
-    public Stream<String> getHeadlines() {
-        return browser.findElementsBy(S_HEADLINE)
+    public List<WebElement> getHeadlines() {
+        return browser.findElementsBy(S_HEADLINE);
+    }
+
+    public Stream<String> getHeadlinesTitles() {
+        return  getHeadlines()
+                .stream()
                 .filter(e -> e.getText() != null)
                 .map(e -> e.getText());
     }
 
+    public int headlinesCount() {
+        return getHeadlines().size();
+    }
+
     public void printHeadlines() {
-        getHeadlines().forEach((headline) -> System.out.println("News headline: " + headline));
+        getHeadlinesTitles().forEach((headline) -> System.out.println("News headline: " + headline));
     }
 }

@@ -5,8 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.stream.Stream;
+import java.util.List;
 
 /**
  * Created by carlosesteves on 07/09/15.
@@ -52,14 +54,25 @@ public class Browser {
     }
 
     public void open(String url) {
-        this.webDriver.get(url);
+        webDriver.get(url);
     }
 
     public void close() {
-        this.webDriver.close();
+        webDriver.close();
     }
 
-    public Stream<WebElement> findElementsBy(By by) {
-        return webDriver.findElements(by).stream();
+
+    public List<WebElement> findElementsBy(By by) {
+        return webDriver.findElements(by);
+    }
+
+    public void click(By by) {
+        webDriver.findElement(by).click();
+    }
+
+    public void waitUntilVisible(By by) {
+        WebDriverWait wait = new WebDriverWait(webDriver, 10);
+        wait.until(
+                ExpectedConditions.visibilityOfElementLocated(by));
     }
 }
